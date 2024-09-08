@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Page</title>
+    <link rel="stylesheet" href="../CSS/learning.css">
+    <script src="../JAVASCRIPT/learning.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">#TelkomCoding</div>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="landing.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="video-container">
+            <!-- Embed YouTube video here -->
+            <iframe src="https://www.youtube.com/embed/m7r95oO3IF8" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Next button positioned at the bottom-right under the video -->
+        <button class="next-button" onclick="goToNextLesson()">
+            Next Lesson <span>&#8594;</span>
+        </button>
+    </div>
+
+    <footer>
+        <p>© 2024 GameField. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

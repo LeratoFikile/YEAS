@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="form-switch">
+            <button id="parent-btn" class="switch-btn active">Parent</button>
+            <button id="child-btn" class="switch-btn">Child</button>
+        </div>
+        <div class="form-flip-container">
+            <div id="flip-card" class="form-flip-card">
+                <!-- Parent Login Form -->
+                <form id="parent-form" class="form-content front">
+                    <h2>Parent Login</h2>
+                    <div class="form-group">
+                        <label for="parent-code">Child Code:</label>
+                        <input type="text" id="parent-code" name="parent-code" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+
+                <!-- Child Login Form -->
+                <form id="child-form" class="form-content back">
+                    <h2>Child Login</h2>
+                    <label for="child-username">Username:</label>
+                    <input type="text" id="child-username" name="child-username" required>
+                    
+                    <label for="child-password">Password:</label>
+                    <input type="password" id="child-password" name="child-password" required>
+                    
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JAVASCRIPT/login.js"></script>
+</body>
+</html>

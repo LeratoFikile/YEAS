@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telkom eSIM Management</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/thuso.css">
+    <style>
+        /* Icon styling */
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .chat-icon img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Pop-up form modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>#TelkomLearnHack</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="register.html" class="register-btn">REGISTER NOW</a>
+    </header>
+
+    <section class="features">
+        <h2 class="section-title">Telkom eSIM Management Features</h2>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <img src="../ASSETS/qr-code.png" alt="QR Code Activation">
+                <h3>Seamless eSIM Activation</h3>
+                <p>Scan a QR code to activate your eSIM, and follow the step-by-step guide for a seamless setup.</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../ASSETS/controller.png" alt="Remote Number Management">
+                <h3>Remote Number Management</h3>
+                <p>Manage your eSIM numbers remotely. Change, deactivate, or port your number across devices.</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../ASSETS/dual.png" alt="Dual SIM Support">
+                <h3>Support for Dual-SIM Devices</h3>
+                <p>Manage both physical and eSIM cards seamlessly from one platform.</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../ASSETS/monitor.png" alt="Data Monitoring">
+                <h3>Data Monitoring and Top-Up</h3>
+                <p>Monitor data usage and top up instantly through the Telkom platform.</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../ASSETS/customer-agent.png" alt="Language Support">
+                <h3>Local Language and Accessibility Support</h3>
+                <p>Enjoy support in multiple local languages with a non-technical user interface.</p>
+            </div>
+
+            <div class="feature-item">
+                <img src="../ASSETS/no-connection.png" alt="Offline Support">
+                <h3>Offline Activation Assistance</h3>
+                <p>Activate your eSIM offline through SMS or community centers.</p>
+            </div>
+        </div>
+         <!-- Chat Icon -->
+    <div class="chat-icon" id="chat-icon">
+        <img src="../ASSETS/chatbot_logo.png" alt="Chat with Thuso">
+    </div>
+
+    <!-- Modal for Thuso Chatbot -->
+    <div id="thuso-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="message bot-message">
+                        <p>Hello! I'm Thuso, your coding assistant. How can I help you today?</p>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="user-input" placeholder="Type your question here...">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Telkom. All rights reserved.</p>
+    </footer>
+    <script>
+        // Get modal element
+        var modal = document.getElementById('thuso-modal');
+        var chatIcon = document.getElementById('chat-icon');
+        var closeModal = document.getElementById('close-modal');
+
+        // Open modal on icon click
+        chatIcon.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // Close modal on clicking 'X'
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="../JAVASCRIPT/thuso.js"></script>
+</body>
+</html>

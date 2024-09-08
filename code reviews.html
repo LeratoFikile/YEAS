@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #editor-container { width: 100%; height: 400px; }
+        #feedback { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Code Review Platform</h1>
+    </header>
+    <main>
+        <div id="editor-container"></div>
+        <button id="submit-code">Submit Code</button>
+        <div id="feedback"></div>
+    </main>
+    <script src="https://unpkg.com/monaco-editor@0.30.1/min/vs/loader.js"></script>
+    <script>
+        // Load Monaco Editor
+        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.30.1/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            var editor = monaco.editor.create(document.getElementById('editor-container'), {
+                value: 'print("Hello, World!")',
+                language: 'python'
+            });
+
+            document.getElementById('submit-code').addEventListener('click', function() {
+                var code = editor.getValue();
+                fetch('/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('feedback').innerText = data.feedback;
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Coding Game</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="character"></div>
+        <div id="obstacles"></div>
+        <div id="score">Score: 0</div>
+    </div>
+    <div id="controls">
+        <button id="move-left">Move Left</button>
+        <button id="move-right">Move Right</button>
+        <button id="jump">Jump</button>
+        <button id="restart">Restart</button>
+    </div>
+    <div id="editor-container">
+        <textarea id="code-editor"></textarea>
+        <button id="run-code">Run Code</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="../JAVASCRIPT/game.js"></script>
+</body>
+</html>

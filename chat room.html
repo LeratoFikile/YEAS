@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="../CSS/chat room.css">
+    <script src="../JAVASCRIPT/chat room.js" defer></script>
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>Community Chatroom</h1>
+        </header>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Hardcoded conversation -->
+            <div class="message from-girl">
+                <img src="../ASSETS/woman.png" alt="Girl">
+                <div class="message-text">
+                    <p>Hey everyone! How’s everyone’s project going?</p>
+                    <span class="timestamp">10:00 AM</span>
+                </div>
+            </div>
+            <div class="message from-boy">
+                <img src="../ASSETS/boy.png" alt="Boy">
+                <div class="message-text">
+                    <p>Hey! It’s going well, but I’m stuck on a bug. Need some help?</p>
+                    <span class="timestamp">10:02 AM</span>
+                </div>
+            </div>
+            <div class="message from-user2">
+                <img src="../ASSETS/guy.png" alt="User 2">
+                <div class="message-text">
+                    <p>Hi all! I just finished my design. What are you stuck on?</p>
+                    <span class="timestamp">10:04 AM</span>
+                </div>
+            </div>
+            <div class="message from-user3">
+                <img src="../ASSETS/girl.png" alt="User 3">
+                <div class="message-text">
+                    <p>Hey! I’m having trouble with my code too. Maybe we can figure it out together?</p>
+                    <span class="timestamp">10:06 AM</span>
+                </div>
+            </div>
+            <div class="message from-girl">
+                <img src="../ASSETS/woman.png" alt="Girl">
+                <div class="message-text">
+                    <p>Sure! Let’s help each other. What’s the issue?</p>
+                    <span class="timestamp">10:08 AM</span>
+                </div>
+            </div>
+            <div class="message from-boy">
+                <img src="../ASSETS/boy.png" alt="Boy">
+                <div class="message-text">
+                    <p>It’s a JavaScript function that’s not working as expected. I can share my code if that helps.</p>
+                    <span class="timestamp">10:10 AM</span>
+                </div>
+            </div>
+        </div>
+        <div id="chat-form">
+            <div class="chat-controls">
+                <button class="emoji-button" aria-label="Emoji Picker"></button>
+                <button class="audio-button" aria-label="Audio Message"></button>
+                <button class="camera-button" aria-label="Send Photo"></button>
+            </div>
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+</body>
+</html>

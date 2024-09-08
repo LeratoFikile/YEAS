@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Sign-Up</title>
+    <link rel="stylesheet" href="../CSS/signup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <div class="form-switch">
+            <button id="parent-btn" class="switch-btn active">Parent</button>
+            <button id="learner-btn" class="switch-btn">Learner</button>
+        </div>
+        <div class="form-flip-container">
+            <div id="flip-card" class="form-flip-card">
+                <!-- Parent Form -->
+                <div id="parent-form" class="form-content front">
+                    <h2>Parent Sign Up</h2>
+                    <label for="parent-name">Name:</label>
+                    <input type="text" id="parent-name" name="parent-name" required>
+                    
+                    <label for="parent-email">Email:</label>
+                    <input type="email" id="parent-email" name="parent-email" required>
+                    
+                    <label for="child-name">Child's Code:</label>
+                    <input type="text" id="child-name" name="child-name">
+                    
+                    <button type="submit">Sign Up</button>
+                </div>
+
+                <!-- Learner Form -->
+                <div id="learner-form" class="form-content back">
+                    <h2>Learner Sign Up</h2>
+                    <label for="learner-name">Name:</label>
+                    <input type="text" id="learner-name" name="learner-name" required>
+                    
+                    <label for="child-grade">Child's Grade:</label>
+                    <select id="child-grade" name="child-grade" required>
+                        <option value="" disabled selected>Select Grade</option>
+                        <option value="Grade 1">Grade 1</option>
+                        <option value="Grade 2">Grade 2</option>
+                        <option value="Grade 3">Grade 3</option>
+                        <option value="Grade 4">Grade 4</option>
+                        <option value="Grade 5">Grade 5</option>
+                        <option value="Grade 6">Grade 6</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                        <option value="Grade 11">Grade 11</option>
+                        <option value="Grade 12">Grade 12</option>
+                    </select>
+
+                    <label for="child-age">Child's Age:</label>
+                    <select id="child-age" name="child-age" required>
+                        <option value="" disabled selected>Select Age</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    
+                    <button type="submit">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JAVASCRIPT/signup.js"></script>
+</body>
+</html>

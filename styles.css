@@ -1,0 +1,79 @@
+/* CSS (styles.css) */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    background-color: #87CEFA; /* Sky blue */
+    overflow: hidden;
+    border: 2px solid #000;
+    margin-bottom: 20px;
+}
+
+#character {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets/character.png'); /* Placeholder image */
+    background-size: cover;
+    bottom: 10px;
+    left: 50px;
+}
+
+#obstacles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.obstacle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #8B0000; /* Dark red */
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+}
+
+#controls {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#editor-container {
+    margin-top: 20px;
+}
+
+#code-editor {
+    height: 200px;
+    width: 100%;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#restart {
+    background-color: #ff0000; /* Red */
+    color: #fff;
+}
+
+#restart:hover {
+    background-color: #cc0000;
+}

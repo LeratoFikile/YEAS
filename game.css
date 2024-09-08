@@ -1,0 +1,107 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 2.5rem;
+    color: #4caf50; /* Green color */
+    margin-bottom: 20px;
+    animation: bounce 1s infinite; /* Apply the bounce animation */
+}
+
+/* Keyframes for bouncing effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start and end position */
+    }
+    50% {
+        transform: translateY(-20px); /* Bounce height */
+    }
+}
+
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4caf50; /* Green color */
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #00796b; /* Darker green color */
+}
+
+#time {
+    font-weight: bold;
+    color: #004d40; /* Even darker green color */
+}
+
+.question-box {
+    font-size: 1.8rem;
+    color: #00796b; /* Darker green color */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #b3e5fc; /* Light blue background */
+    border-radius: 10px;
+}
+
+.options-box button {
+    margin: 10px;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #b2dfdb; /* Light green background */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.options-box button:hover {
+    background-color: #80cbc4; /* Slightly darker green on hover */
+    transform: scale(1.1);
+}
+
+.cute-btn {
+    padding: 10px 25px;
+    background-color: #4caf50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.cute-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    transform: scale(1.1);
+}
+
+.result-box {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #00796b; /* Darker green color */
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telkom eLearning</title>
+    <link rel="stylesheet" href="../CSS/thuso.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+    
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #0078d7;
+            color: white;
+            position: relative;
+        }
+    
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+    
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+    
+        .logo h1 {
+            font-size: 1.6rem;
+        }
+    
+        nav {
+            display: flex;
+            align-items: center;
+        }
+    
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+    
+        nav ul li {
+            margin-left: 20px;
+        }
+    
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+    
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+    
+        .register-btn {
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .register-btn:hover {
+            background-color: #e67e22;
+        }
+    
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+            margin-left: 20px;
+        }
+    
+        #language-btn {
+            background: #fff;
+            color: #0078d7;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+    
+        #language-btn:hover {
+            background: #0078d7;
+            color: #fff;
+        }
+    
+        #language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    
+        #language-options button {
+            background: #fff;
+            color: #0078d7;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: left;
+            transition: background 0.3s, color 0.3s;
+        }
+    
+        #language-options button:hover {
+            background: #0078d7;
+            color: #fff;
+        }
+    
+        /* Banner Section */
+        .banner {
+            background-image: url('../ASSETS/land.webp');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(253, 253, 255);
+            text-align: center;
+        }
+    
+        .banner h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    
+        .banner p {
+            font-size: 1.4rem;
+        }
+    
+        /* About Section */
+        .about {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+    
+        .about h2 {
+            color: #0078d7;
+            margin-bottom: 20px;
+        }
+    
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+    
+        /* Features Section */
+        .features {
+            padding: 50px;
+            text-align: center;
+        }
+    
+        .features h2 {
+            color: #0078d7;
+            margin-bottom: 20px;
+        }
+    
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    
+        .feature-item {
+            background-color: #fff;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        .feature-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+    
+        .cta-btn {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+    
+        .cta-btn:hover {
+            background-color: #e67e22;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            nav ul {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+    
+            nav ul li {
+                margin: 10px 0;
+            }
+    
+            .register-btn {
+                margin-top: 15px;
+            }
+    
+            .banner {
+                height: 300px;
+            }
+    
+            .banner h2 {
+                font-size: 2rem;
+            }
+    
+            .feature-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    
+        /* Footer Section */
+        footer {
+            background-color: #0078d7;
+            color: white;
+            padding: 40px 20px;
+        }
+    
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    
+        /* Footer Section Styling */
+        .footer-logo {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+    
+        .footer-logo img {
+            width: 120px;
+        }
+    
+        .footer-links, .footer-contact, .footer-social {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+    
+        .footer-links ul,
+        .footer-contact ul,
+        .footer-social ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .footer-links ul li,
+        .footer-contact ul li,
+        .footer-social ul li {
+            margin-bottom: 10px;
+        }
+    
+        .footer-links ul li a,
+        .footer-social ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        .footer-links ul li a:hover,
+        .footer-social ul li a:hover {
+            color: #f39c12;
+        }
+    
+        .footer-contact ul li {
+            color: white;
+        }
+    
+        /* Social Media Icons */
+        .footer-social ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    
+        .footer-social ul li a img {
+            width: 30px;
+        }
+    
+        /* Footer Bottom */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #ffffff55;
+            margin-top: 20px;
+        }
+    
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            .footer-logo,
+            .footer-links,
+            .footer-contact,
+            .footer-social {
+                margin-bottom: 40px;
+            }
+        }
+    
+        /* Language Switch Button */
+        #languageButton {
+            padding: 10px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    
+        #languageButton:hover {
+            background-color: #e67e22;
+        }
+    
+        /* Language Modal */
+        #languageSelectionModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .language-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 60%;
+        }
+    
+        #languageOptions {
+            list-style: none;
+            padding: 0;
+        }
+    
+        #languageOptions li {
+            margin: 10px 0;
+        }
+    
+        #languageOptions button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    
+        #languageOptions button:hover {
+            background-color: #45a049;
+        }
+    
+        .close-modal {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    
+        .close-modal:hover {
+            background-color: #e57373;
+        }
+    
+        /* Content Section */
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+    
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    
+        .chat-icon img {
+            width: 100%;
+            height: 100%;
+        }
+    
+        /* Pop-up form modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .modal .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    
+        .modal .close:hover,
+        .modal .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://www.telkomlearn.co.za/images/logo.svg" alt="Telkom Logo">
+            <h1>Telkom eLearning</h1>
+        </div>
+
+        <nav>
+            <ul>
+          
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="login.html">Log in</a></li>
+            </ul>
+            
+        </nav>
+        <li><button id="languageButton">Language</button></li>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>Learn Anytime, Anywhere</h2>
+        <p>Flexible learning solutions for a better future</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>What is TelkomCodes?</h2>
+        <p>TelkomCodes is a dynamic learning platform dedicated to advancing coding skills and fostering innovation in the digital age. As an integral part of Telkom Learn, TelkomCodes focuses on providing specialized coding courses and workshops that cater to various levels, from beginners to advanced developers. Our mission is to equip learners with practical coding skills that are essential for thriving in today's technology-driven world.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Our Features</h2>
+        <div class="feature-grid">
+            <!-- AI Chatbot Feature -->
+            <div class="feature-item">
+                <img src="https://www.telkomlearn.co.za/images/landingpage/thuso-chatbot.svg" alt="AI Chatbot">
+                <h3>AI Chatbot Assistance</h3>
+                <p>Engage with an AI-powered chatbot for instant support and learning guidance.</p>
+            </div>
+
+            <!-- Gamefield Learning Feature -->
+            <div class="feature-item">
+                <img src="data:image/jpeg;base64,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" alt="Interactive Content">
+                <h3>Gamefield Learning</h3>
+                <p>Enjoy interactive content and gamified learning experiences for better engagement.</p>
+            </div>
+
+            <!-- Real-Time Skill Assessment Feature -->
+            <div class="feature-item">
+                <img src="https://www.google.com/imgres?q=leaderboards&imgurl=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A1400%2F1*0DujaclNjg7myWRZIdJ10g.png&imgrefurl=https%3A%2F%2Fmedium.com%2F%40alidrsn%2Fclimbing-the-ranks-a-guide-to-leaderboards-in-mobile-gaming-67f4f808e147&docid=Io46x-4_9XgCDM&tbnid=PaCOV-9ctqjrAM&vet=12ahUKEwi1vd7rurKIAxU7W0EAHW7-EO4QM3oECFcQAA..i&w=1400&h=941&hcb=2&ved=2ahUKEwi1vd7rurKIAxU7W0EAHW7-EO4QM3oECFcQAA" alt="Real-Time Learning">
+                <h3>Real-Time Skill Assessment</h3>
+                <p>Receive real-time feedback and skill assessments to track your progress.</p>
+            </div>
+
+            <!-- Mobile Optimization and Language Switch Feature -->
+            <div class="feature-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTfrBa5RqJ4Ed77d6nsQGHgzNBt7sGlKF6Q&s" alt="Accessibility">
+                <h3>Accessibility and Inclusivity</h3>
+                <p>Learn on any device with mobile optimization and switch between multiple languages.</p>
+            </div>
+
+            <!-- Online Community and Virtual Resource Centers -->
+            <div class="feature-item">
+                <img src="data:image/jpeg;base64,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" alt="Community Support">
+                <h3>Community and Support</h3>
+                <p>Join an online community and access virtual resource centers for extra learning support.</p>
+            </div>
+        </div>
+        <a href="register.html" class="cta-btn">Explore Our Courses</a>
+         <!-- Chat Icon -->
+    <div class="chat-icon" id="chat-icon">
+        <img src="../ASSETS/chatbot_logo.png" alt="Chat with Thuso">
+    </div>
+
+    <!-- Modal for Thuso Chatbot -->
+    <div id="thuso-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="message bot-message">
+                        <p>Hello! I'm Thuso, your coding assistant. How can I help you today?</p>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="user-input" placeholder="Type your question here...">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+ <!-- Language Modal -->
+<div id="languageSelectionModal">
+    <div class="language-modal-content">
+        <button class="close-modal">Close</button>
+        <h2>Select Language</h2>
+        <ul id="languageOptions">
+            <!-- Language options will be added here -->
+        </ul>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const languageButton = document.getElementById("languageButton");
+    const languageModal = document.getElementById("languageSelectionModal");
+    const closeBtn = document.querySelector(".close-modal");
+    const languageOptions = document.getElementById("languageOptions");
+
+    // Language translations
+    const translations = {
+        English: {
+            headerTitle: "Telkom eLearning",
+            bannerTitle: "Learn Anytime, Anywhere",
+            bannerDescription: "Flexible learning solutions for a better future",
+            aboutTitle: "What is TelkomCodes?",
+            aboutDescription: "TelkomCodes is a dynamic learning platform dedicated to advancing coding skills and fostering innovation in the digital age. As an integral part of Telkom Learn, TelkomCodes focuses on providing specialized coding courses and workshops that cater to various levels, from beginners to advanced developers. Our mission is to equip learners with practical coding skills that are essential for thriving in today's technology-driven world.",
+            featureAIChatbot: "AI Chatbot Assistance",
+            featureAIChatbotDesc: "Engage with an AI-powered chatbot for instant support and learning guidance.",
+            featureInteractiveContent: "Gamefield Learning",
+            featureInteractiveContentDesc: "Enjoy interactive content and gamified learning experiences for better engagement.",
+            featureRealTimeLearning: "Real-Time Skill Assessment",
+            featureRealTimeLearningDesc: "Receive real-time feedback and skill assessments to track your progress.",
+            featureAccessibility: "Accessibility and Inclusivity",
+            featureAccessibilityDesc: "Learn on any device with mobile optimization and switch between multiple languages.",
+            featureCommunitySupport: "Community and Support",
+            featureCommunitySupportDesc: "Join an online community and access virtual resource centers for extra learning support.",
+            exploreCoursesTitle: "Explore Our Courses",
+            quickLinks: {
+                about: "About",
+                courses: "Courses",
+                contact: "Contact",
+                login: "Log in"
+            },
+            contactUs: {
+                tel: "+27 11 123 4567",
+                email: "info@telkomelearning.co.za",
+                address: "1234 Education Way, Johannesburg"
+            },
+            followUs: {
+                facebook: "Facebook",
+                twitter: "Twitter",
+                instagram: "Instagram"
+            },
+            footerText: "TelkomCoding - Making a difference in agriculture."
+        },
+        Afrikaans: {
+            headerTitle: "Welkom by Telkom eLearning",
+            bannerTitle: "Leer Enige Tyd, Oral",
+            bannerDescription: "Buigsame leeroplossings vir 'n beter toekoms",
+            aboutTitle: "Wat is TelkomCodes?",
+            aboutDescription: "TelkomCodes is 'n dinamiese leerplatform wat toegewy is aan die bevordering van koderingvaardighede en die bevordering van innovasie in die digitale era. As 'n integrale deel van Telkom Learn, fokus TelkomCodes op die verskaffing van gespesialiseerde koderingkursusse en werksessies wat verskeie vlakke bedien, van beginners tot gevorderde ontwikkelaars. Ons missie is om leerders te voorsien van praktiese koderingvaardighede wat noodsaaklik is vir sukses in die tegnologiegedrewe wêreld van vandag.",
+            featureAIChatbot: "AI Chatbot Hulp",
+            featureAIChatbotDesc: "Verbind met 'n KI-aangedrewe chatbot vir onmiddellike ondersteuning en leer leiding.",
+            featureInteractiveContent: "Speletjie-veldhervorming",
+            featureInteractiveContentDesc: "Geniet interaktiewe inhoud en speletjies-gebaseerde leerervarings vir beter betrokkenheid.",
+            featureRealTimeLearning: "Regstydse Vaardigheidsassessering",
+            featureRealTimeLearningDesc: "Ontvang regstydse terugvoer en vaardigheidsassessering om jou vordering te volg.",
+            featureAccessibility: "Toeganklikheid en Insluiting",
+            featureAccessibilityDesc: "Leer op enige toestel met mobiele optimalisering en wissel tussen verskeie tale.",
+            featureCommunitySupport: "Gemeenskap en Ondersteuning",
+            featureCommunitySupportDesc: "Sluit aan by 'n aanlyn gemeenskap en toegang tot virtuele hulpbronne vir ekstra leerondersteuning.",
+            exploreCoursesTitle: "Verken Ons Kursusse",
+            quickLinks: {
+                about: "Oor",
+                courses: "Kursusse",
+                contact: "Kontak",
+                login: "Teken in"
+            },
+            contactUs: {
+                tel: "+27 11 123 4567",
+                email: "info@telkomelearning.co.za",
+                address: "1234 Education Way, Johannesburg"
+            },
+            followUs: {
+                facebook: "Facebook",
+                twitter: "Twitter",
+                instagram: "Instagram"
+            },
+            footerText: "TelkomCoding - Maak 'n verskil in landbou."
+        },
+        Zulu: {
+            headerTitle: "Siyakwamukela eTelkom eLearning",
+            bannerTitle: "Funda Noma Yini, Noma Kuphi",
+            bannerDescription: "Izixazululo zokufunda eziguquguqukayo zesikhathi esizayo esingcono",
+            aboutTitle: "Yini i-TelkomCodes?",
+            aboutDescription: "I-TelkomCodes iyindawo yokufunda eguquguqukayo egxile ekuthuthukiseni amakhono okubhala izinhlelo kanye nokukhuthaza ukuvuselelwa kwesikhathi samanje. Njengengxenye ebalulekile ye-Telkom Learn, i-TelkomCodes igxile ekunikezeni izifundo ezikhethekile zokubhala izinhlelo kanye nezifundo ezihlosiwe ezihambelana nezinga elihlukahlukene, kusukela kwabasaqalayo kuze kufike kubathuthukisi abaphezulu. Inhloso yethu ukuhlinzeka abafundi ngamasu okubhala izinhlelo abalulekile ukuze baphumelele emhlabeni onemfashini yesikhathi samanje.",
+            featureAIChatbot: "Usizo lwe-AI Chatbot",
+            featureAIChatbotDesc: "Xhumana ne-chatbot esekelwe ku-AI ukuze uthole usizo olusheshayo nolwazi lokufunda.",
+            featureInteractiveContent: "Ukuhamba Kwezemidlalo",
+            featureInteractiveContentDesc: "Jabulela okuqukethwe okusebenzisanayo nokufunda okufakwe ku-gamification ukuze kuthuthukiswe ukuzibandakanya.",
+            featureRealTimeLearning: "Ukuhlolwa Kwamakhono Ngokwesikhathi Esifanele",
+            featureRealTimeLearningDesc: "Thola ukubuyekezwa kwesikhathi sangempela nokuhlolwa kwamakhono ukuze ulandele inqubekela phambili yakho.",
+            featureAccessibility: "Ukufinyelela Nokubandakanya",
+            featureAccessibilityDesc: "Funda kunoma iyiphi idivayisi ngokukhethekile kweselula futhi ushintshe phakathi kwezilimi eziningi.",
+            featureCommunitySupport: "Umphakathi Nokusekelwa",
+            featureCommunitySupportDesc: "Joyina umphakathi waku-inthanethi futhi ufike kumacenters wokuxhasa kwezentuthuko zokufunda.",
+            exploreCoursesTitle: "Hlola Izifundo Zethu",
+            quickLinks: {
+                about: "Mayelana",
+                courses: "Izifundo",
+                contact: "Xhumana",
+                login: "Ngena"
+            },
+            contactUs: {
+                tel: "+27 11 123 4567",
+                email: "info@telkomelearning.co.za",
+                address: "1234 Education Way, Johannesburg"
+            },
+            followUs: {
+                facebook: "Facebook",
+                twitter: "Twitter",
+                instagram: "Instagram"
+            },
+            footerText: "TelkomCoding - Ukwenza umehluko emasimini."
+        }
+    };
+
+    // Open language modal
+    languageButton.addEventListener("click", () => {
+        languageModal.style.display = "flex";
+        populateLanguageOptions();
+    });
+
+    // Close language modal
+    closeBtn.addEventListener("click", () => {
+        languageModal.style.display = "none";
+    });
+
+    // Populate language options
+    function populateLanguageOptions() {
+        languageOptions.innerHTML = '';
+        for (let lang in translations) {
+            let button = document.createElement("button");
+            button.textContent = lang;
+            button.addEventListener("click", () => changeLanguage(lang));
+            languageOptions.appendChild(button);
+        }
+    }
+
+    // Change language
+    function changeLanguage(language) {
+        let texts = translations[language];
+        document.querySelector("header h1").textContent = texts.headerTitle;
+        document.querySelector(".banner h2").textContent = texts.bannerTitle;
+        document.querySelector(".banner p").textContent = texts.bannerDescription;
+        document.querySelector(".about h2").textContent = texts.aboutTitle;
+        document.querySelector(".about p").textContent = texts.aboutDescription;
+        document.querySelector(".features .feature-item:nth-child(1) h3").textContent = texts.featureAIChatbot;
+        document.querySelector(".features .feature-item:nth-child(1) p").textContent = texts.featureAIChatbotDesc;
+        document.querySelector(".features .feature-item:nth-child(2) h3").textContent = texts.featureInteractiveContent;
+        document.querySelector(".features .feature-item:nth-child(2) p").textContent = texts.featureInteractiveContentDesc;
+        document.querySelector(".features .feature-item:nth-child(3) h3").textContent = texts.featureRealTimeLearning;
+        document.querySelector(".features .feature-item:nth-child(3) p").textContent = texts.featureRealTimeLearningDesc;
+        document.querySelector(".features .feature-item:nth-child(4) h3").textContent = texts.featureAccessibility;
+        document.querySelector(".features .feature-item:nth-child(4) p").textContent = texts.featureAccessibilityDesc;
+        document.querySelector(".features .feature-item:nth-child(5) h3").textContent = texts.featureCommunitySupport;
+        document.querySelector(".features .feature-item:nth-child(5) p").textContent = texts.featureCommunitySupportDesc;
+        document.querySelector(".explore-courses h2").textContent = texts.exploreCoursesTitle;
+        document.querySelector(".footer-contact ul li:nth-child(1)").textContent = `Tel: ${texts.contactUs.tel}`;
+        document.querySelector(".footer-contact ul li:nth-child(2)").textContent = `Email: ${texts.contactUs.email}`;
+        document.querySelector(".footer-contact ul li:nth-child(3)").textContent = `Address: ${texts.contactUs.address}`;
+        document.querySelector(".footer-follow-us ul li:nth-child(1)").textContent = texts.followUs.facebook;
+        document.querySelector(".footer-follow-us ul li:nth-child(2)").textContent = texts.followUs.twitter;
+        document.querySelector(".footer-follow-us ul li:nth-child(3)").textContent = texts.followUs.instagram;
+        languageModal.style.display = "none";
+    }
+});
+</script>
+
+    
+    <footer>
+        <div class="footer-container">
+            <!-- Footer Logo -->
+            <div class="footer-logo">
+                <img src="https://www.telkomlearn.co.za/images/logo.svg" alt="Telkom eLearning Logo">
+            </div>
+
+            <!-- Footer Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                  
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Contact Info -->
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Tel: +27 11 123 4567</li>
+                    <li>Email: info@telkomelearning.co.za</li>
+                    <li>1234 Education Way, Johannesburg</li>
+                </ul>
+            </div>
+
+            <!-- Footer Social Media Links -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><img src="https://image.shutterstock.com/image-vector/facebook-icon-logo-vector-600w-1110016916.jpg" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="https://image.shutterstock.com/image-vector/twitter-icon-logo-vector-600w-1110016918.jpg" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="https://image.shutterstock.com/image-vector/instagram-icon-logo-vector-600w-1110016914.jpg" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Text -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Telkom eLearning. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Get modal element
+        var modal = document.getElementById('thuso-modal');
+        var chatIcon = document.getElementById('chat-icon');
+        var closeModal = document.getElementById('close-modal');
+
+        // Open modal on icon click
+        chatIcon.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // Close modal on clicking 'X'
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="../JAVASCRIPT/thuso.js"></script>
+</body>
+</html>
